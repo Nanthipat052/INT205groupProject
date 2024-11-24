@@ -19,7 +19,7 @@ USE `mydb` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`restaurantCategories` (
   `restaurant_category_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
+  `restaurant_category_name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`restaurant_category_id`));
 
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`restaurants` (
   `city` VARCHAR(45) NOT NULL,
   `location` VARCHAR(255) NOT NULL,
   `open_time` TIME NOT NULL,
-  `closetime` TIME NOT NULL,
+  `close_time` TIME NOT NULL,
   `holiday_schedule` VARCHAR(30) NOT NULL,
   `phone` VARCHAR(15) NOT NULL,
   `restaurant_category_id` INT NOT NULL,
@@ -203,7 +203,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`membership` (
   `membership_id` INT NOT NULL AUTO_INCREMENT,
-  `member_type` VARCHAR(45) NOT NULL,
+  `member_type` ENUM('Classic', 'Silver', 'Gold', 'Platinum') NOT NULL,
   `point` DECIMAL(10,2) NOT NULL,
   `expiry_date` DATE NOT NULL,
   `discount` DECIMAL NULL,
@@ -249,8 +249,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`riderReview` (
   `rider_review_id` INT NOT NULL AUTO_INCREMENT,
-  `comment` VARCHAR(255) NOT NULL,
   `rating` ENUM('excellent', 'good', 'average', 'fair', 'poor') NOT NULL,
+  `comment` VARCHAR(255) NULL,
   `order_id` INT NOT NULL,
   `rider_id` INT NOT NULL,
   PRIMARY KEY (`rider_review_id`),
