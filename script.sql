@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`orders` (
   `shipping_cost` DECIMAL(10,2) NOT NULL,
   `customer_id` INT NOT NULL,
   `payment_id` INT NULL,
-  `rider_id` INT NOT NULL,
+  `rider_id` INT NULL,
   `restaurant_id` INT NOT NULL,
   PRIMARY KEY (`order_id`),
   INDEX `fk_orders_customers1_idx` (`customer_id` ASC) VISIBLE,
